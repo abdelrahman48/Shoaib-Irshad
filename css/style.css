@@ -181,7 +181,7 @@ body {
 .main .hamburger__menu .subLinksto .item-link a {
   text-decoration: none;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 14px !important;
   line-height: 17px;
   color: #FFFFFF;
 }
@@ -2180,6 +2180,9 @@ body {
 }
 .hamburger__swt2 {
   right: 3%;
+  left: unset;
+  top: 1%;
+  cursor: pointer;
 }
 .main {
   position: relative;
@@ -2292,6 +2295,11 @@ body {
   padding: 2px 6px;
   justify-content: space-between;
 }
+.main .hamburger__menu .subLinksto .item-link {
+  padding: 10px;
+  height: auto;
+  width: 95%;
+}
 .light .main .hamburger__footer .switch .label {
   background-color: #FFF;
   border: 1px solid #5C37AF;
@@ -2356,6 +2364,9 @@ body {
   font-weight: 500;
 }
 /**/
+.main .hamburger__menu .subLinksto .item-link {
+  margin-left: 0 !important;
+}
 
 /**/
 .main .hamburger__links .links a svg,
@@ -2413,6 +2424,9 @@ body {
   }
 }
 @media (max-width: 1555px) {
+  .hamburger__menu .hamburger__item {
+    width: 95% !important;
+  }
   .main .hamburger__footer .hamburger__links {
     margin-left: 16px;
     justify-content: center;
@@ -2541,6 +2555,17 @@ body {
   }
   .footer__links {
     margin-top: 15px;
+  }
+}
+@media (max-width: 426px) {
+  .main .hamburger__menu {
+    margin-top: 60px;
+  }
+  .hamburger__item .linkto {
+    padding: 14px 10px !important;
+  }
+  .main .hamburger__menu .hamburger__item .linkto .bt svg {
+    right: -7.7%;
   }
 }
 
