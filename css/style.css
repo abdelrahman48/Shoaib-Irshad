@@ -2266,8 +2266,9 @@ body {
 }
 .main .hamburger__footer .switch {
   position: absolute;
-  right: 10px;
+  right: 6px;
   width: auto;
+  margin-top: 2px;
 }
 .main .hamburger__footer .linkto {
   padding: 10px 5px;
@@ -2329,7 +2330,7 @@ body {
 }
 .main .hamburger__footer .hamburger__links {
 
-  margin: 14px 0 0 39px;
+  margin: 13px 0 0 39px;
 }
 .main .hamburger__footer .hamburger__links a {
   margin-right: 19px;
@@ -2378,3 +2379,40 @@ body {
 }
 
 /* Closed Menu */
+
+/* Media Query */
+@media (min-width: 320px) {
+  .header__btn {
+    height: 28px;
+  }
+  .header__menu svg {
+    display: none;
+  }
+  .header__logo span {
+    display: none;
+  }
+  .header__swt {
+    background: none;
+    cursor: pointer;
+  }
+  .header__logo img {
+    width: 26px !important;
+    height: 26px !important;
+    margin-left: -76px !important;
+  }
+}
+
+@media (min-width: 576px) {
+
+}
+@media (min-width: 768px) {
+
+}
+@media (min-width: 992px) {
+
+}
+@media (min-width: 1200px) {
+
+}
+
+/* Media Query */
