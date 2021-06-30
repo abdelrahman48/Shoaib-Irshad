@@ -2423,6 +2423,21 @@ body {
     width: 16px;
     height: 16px;
   }
+  .promo__info .promo__title img {
+    width: 33px !important;
+    height: 33px !important;
+  }
+  .footer__title {
+    font-size: 30px !important;
+    margin-top: 9px !important;
+  }
+  .footer__title img {
+    width: 22px !important;
+    height: 22px !important;
+  }
+  .footer__links {
+    margin-top: 15px;
+  }
 }
 @media (min-width: 576px) {
   .header__logo span:first-of-type {
