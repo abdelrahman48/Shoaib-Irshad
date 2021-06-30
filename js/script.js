@@ -1,5 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
     const sliderButton = document.querySelector ('.header__menu'),
+          menuSVG = document.querySelectorAll('.hamburger__menu .hamburger__item .linkto svg'),
           hamburger = document.querySelector ('.hamburger'),
           hamburgerLinks = document.querySelector('.hamburger__links'),
           rightArea = document.querySelector ('.right-area'),
@@ -104,8 +105,13 @@ window.addEventListener('DOMContentLoaded', () => {
         })
     })
 
-    //open and close sidebar 
-    sliderButton.addEventListener('click', () => {
+    //open and close sidebar
+    menuSVG.forEach(theMenu => { theMenu.addEventListener('click', menu__slider )});
+    sliderButton.addEventListener('click', menu__slider );
+    function menu__slider(e) {
+        if(e.target.parentElement.classList.contains('linkto') &&
+            !hamburger.classList.contains('closed')) return;
+
         if (window.innerWidth >=425 && window.innerWidth <= 768) {
             if (!(hamburger.classList.contains('closed'))) {
                 rightArea.classList.add('lwr');
@@ -121,7 +127,10 @@ window.addEventListener('DOMContentLoaded', () => {
         footer.classList.toggle('closedMain');
         menuSettings.classList.toggle('closed');
         menuLinks.classList.toggle('closed');
-    })
+        if(hamburger.classList.contains('closed') && subLinksto.classList.contains('oo')) {
+            subLinksto.classList.remove('oo');
+        }
+    }
 
     hamburgerButton1.addEventListener('click', () => {
         subLinksto.classList.toggle('oo');
