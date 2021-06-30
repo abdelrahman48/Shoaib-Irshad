@@ -2381,9 +2381,10 @@ body {
 /* Closed Menu */
 
 /* Media Query */
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .header__btn {
     height: 28px;
+    width: 81px;
   }
   .header__menu svg {
     display: none;
@@ -2395,10 +2396,29 @@ body {
     background: none;
     cursor: pointer;
   }
+  .header__swt svg {
+    margin-left: 9px;
+  }
   .header__logo img {
     width: 26px !important;
     height: 26px !important;
     margin-left: -76px !important;
+  }
+  .header__rest {
+    margin-top: 3px;
+  }
+  .header__rest .user-portrait {
+    width: 30px;
+    height: 30px;
+  }
+  .header__rest .user-portrait svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+@media (min-width: 576px) {
+  .header__logo span:first-of-type {
+    margin-right: 10px;
   }
 }
 @media (max-width: 768px) {
