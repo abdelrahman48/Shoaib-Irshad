@@ -2213,7 +2213,7 @@ body {
   position: relative;
   left: -10px;
   top: 12px;
-  width: 102%;
+  width: 130%;
 }
 .main .hamburger__item {
   margin-left: 0 !important;
@@ -2225,6 +2225,9 @@ body {
   transition: .2s ease;
   opacity: 1;
 }
+.main .hamburger__menu .hamburger__item.active .linkto .bt {
+  color: #24B4C6 !important;
+}
 .main .hamburger__menu .hamburger__item .linkto .bt svg {
   right: -1.7%;
 }
@@ -2235,6 +2238,32 @@ body {
   display: flex;
   position: relative;
 }
+.active .linkto {
+  background: #171428;
+}
+.light .closed .active .linkto {
+  background: #7346D7;
+}
+.closed .active .linkto {
+  stroke: #FFF;
+}
+.main .hamburger__footer .hamburger__item__container.closed .lang,
+.main .hamburger__footer .hamburger__item__container.closed .switch {
+  display: none;
+}
+.main .hamburger__footer .hamburger__item__container.closed .setting {
+  position: relative;
+  left: -20px;
+}
+.light .hamburger.closed .hamburger__item .linkto svg {
+  fill: #24B4C6 !important;
+}
+.light .closed .hamburger__item.setting .linkto svg {
+  fill: none !important;
+}
+.main .hamburger__footer .hamburger__links.closed {
+  display: none;
+}
 .main .hamburger__footer .switch {
   position: absolute;
   right: 10px;
@@ -2243,13 +2272,60 @@ body {
 .main .hamburger__footer .linkto {
   padding: 10px 5px;
 }
+.main .hamburger__footer .switch .label {
+  width: 74px;
+  height: 28px;
+  align-items: center;
+  padding: 2px 6px;
+  justify-content: space-between;
+}
+.light .main .hamburger__footer .switch .label {
+  background-color: #FFF;
+  border: 1px solid #5C37AF;
+}
+.light .main .hamburger__footer .switch .sun path {
+  stroke: #FFF;
+}
+.light .main .hamburger__footer .switch .moon path {
+  stroke: #5C37AF;
+}
+.light .hamburger__links svg {
+  stroke: none !important;
+}
+.light .main .hamburger__footer .linkto svg {
+  fill: none !important;
+}
+.main .hamburger__footer .switch .checkbox:checked .main .hamburger__footer .switch .white {
+  color: #5C37AF;
+}
+.main .hamburger__footer .switch .label .ball {
+  width: 35px;
+  height: 24px;
+  top: 5.5%;
+  left: 49.5%;
+  border-radius: 25px;
+  transition: .2s ease;
+}
+.main .hamburger__footer .switch .checkbox:checked + .label .ball {
+  transform: translateX(-35px);
+  background-color: #5C37AF;
+}
+.main .hamburger__footer .switch i {
+  z-index: 2;
+}
+.main .hamburger__footer .switch .moon {
+  margin: 2px 2px 0 0;
+}
+.main .hamburger__footer .switch .sun {
+  margin: 2px 0 0 2px;
+}
 .main .hamburger__footer .linkto svg {
   fill: none;
   margin-right: 3px;
 }
 .main .hamburger__footer .hamburger__item .linkto .bt {
   font-size: 12px;
-  color: #1FC7D3;
+  color: #1FC7D3 !important;
 }
 .main .hamburger__footer .hamburger__links {
 
@@ -2293,4 +2369,12 @@ body {
 .closed .hamburger__menu .hamburger__item .linkto svg {
   margin: 0 !important;
 }
+.closed .hamburger__menu:after {
+  top: 8px;
+}
+.closed .hamburger__footer {
+  margin-bottom: -10px;
+  padding-top: 10px;
+}
+
 /* Closed Menu */

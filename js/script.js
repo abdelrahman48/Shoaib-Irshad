@@ -14,7 +14,10 @@ window.addEventListener('DOMContentLoaded', () => {
           hamburgerSwitch2 = document.querySelector('.hamburger__swt2'),
           hamburgerButton1 = document.getElementById ('13'),
           subLinksItem = document.querySelectorAll ('.item-link'),
-          subLinksto = document.querySelector('.subLinksto');
+          subLinksto = document.querySelector('.subLinksto'),
+          menuSettings = document.querySelector('.hamburger__item__container'),
+          menuLinks = document.querySelector('.hamburger__links'),
+          ball = document.getElementById ('ball');
 
 
 
@@ -68,11 +71,13 @@ window.addEventListener('DOMContentLoaded', () => {
     })
 
     //switch light and dark themes
-    switchTheme.addEventListener('change', () => {
+    themeInfo.addEventListener('change', () => {
         if (document.body.classList.contains('light')) {
-            themeInfo.innerHTML = "Dark";
+            ball.classList.add('dark');
+            ball.classList.remove('Light');
         } else {
-            themeInfo.innerHTML = "Light";
+            ball.classList.add('Light');
+            ball.classList.remove('dark');
         }
         document.body.classList.toggle('light')
     })
@@ -114,6 +119,8 @@ window.addEventListener('DOMContentLoaded', () => {
         hamburger.classList.toggle('closedButton');
         rightArea.classList.toggle('closedMain');
         footer.classList.toggle('closedMain');
+        menuSettings.classList.toggle('closed');
+        menuLinks.classList.toggle('closed');
     })
 
     hamburgerButton1.addEventListener('click', () => {
