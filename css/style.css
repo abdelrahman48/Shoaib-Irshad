@@ -2178,6 +2178,9 @@ body {
   transform: translate(0px, 0px);
   opacity: 1;
 }
+.hamburger__swt2 {
+  right: 3%;
+}
 .main {
   position: relative;
 }
@@ -2261,7 +2264,8 @@ body {
 }
 .main .hamburger__footer .hamburger__item__container.closed .setting {
   position: relative;
-  left: -20px;
+  left: -10px;
+  margin-left: 0 !important;
 }
 .light .hamburger.closed .hamburger__item .linkto svg {
   fill: #24B4C6 !important;
@@ -2377,10 +2381,10 @@ body {
 }
 /**/
 /* Closed Menu */
-.closed {
+.hamburger.closed {
   width: 60px !important;
 }
-.closed .hamburger__item .linkto {
+.closed .hamburger__menu .hamburger__item .linkto {
   width: 80%;
   border-radius: 10px;
 }
