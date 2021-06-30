@@ -1,24 +1,25 @@
 window.addEventListener('DOMContentLoaded', () => {
-    const sliderButton = document.querySelector ('.header__menu'),
+    const sliderButton = document.querySelector('.header__menu'),
           menuSVG = document.querySelectorAll('.hamburger__menu .hamburger__item .linkto svg'),
-          hamburger = document.querySelector ('.hamburger'),
+          hamburger = document.querySelector('.hamburger'),
           hamburgerLinks = document.querySelector('.hamburger__links'),
-          rightArea = document.querySelector ('.right-area'),
-          leftArea = document.querySelector ('.left-area'),
-          switchTheme = document.getElementById ('checkbox'),
-          activeSection = document.querySelectorAll ('.hamburger__menu .hamburger__item'),
-          header = document.querySelector ('.header'),
+          rightArea = document.querySelector('.right-area'),
+          leftArea = document.querySelector('.left-area'),
+          switchTheme = document.getElementById('checkbox'),
+          activeSection = document.querySelectorAll('.hamburger__menu .hamburger__item'),
+          header = document.querySelector('.header'),
           headerSwitch = document.querySelector('.header__switch'),
           themeInfo = document.getElementById(('themeinfo')),
           footer = document.querySelector('.footer__block'),
           hamburgerSwitch = document.querySelector('.header__swt'),
           hamburgerSwitch2 = document.querySelector('.hamburger__swt2'),
-          hamburgerButton1 = document.getElementById ('13'),
-          subLinksItem = document.querySelectorAll ('.item-link'),
+          hamburgerButton1 = document.getElementById('13'),
+          subLinksItem = document.querySelectorAll('.item-link'),
           subLinksto = document.querySelector('.subLinksto'),
           menuSettings = document.querySelector('.hamburger__item__container'),
           menuLinks = document.querySelector('.hamburger__links'),
-          ball = document.getElementById ('ball');
+          ball = document.getElementById('ball'),
+          overlay = document.querySelector('.overlay');
 
 
 
@@ -56,17 +57,26 @@ window.addEventListener('DOMContentLoaded', () => {
     //     }
     //   }, false);
 
+    if (window.innerWidth >= 426 && window.innerWidth <= 992) {
+        overlay.classList.add('active');
+    }
+
       window.addEventListener('resize', () => {
         if ((window.innerWidth <= 768) && (window.innerWidth > 425) && hamburger.classList.contains('closed') && !rightArea.classList.contains('lwr')){
             hamburger.classList.remove('closed');
             hamburger.classList.remove('closedButton');
+        }
+        if (window.innerWidth >= 426 && window.innerWidth <= 992) {
+              overlay.classList.add('active');
+        } else {
+            overlay.classList.remove('active');
         }
       }, false);
 
     //sidebar at full-screen between 425px and 768px
     window.addEventListener('resize', () => {
         if ((window.innerWidth <=425 || window.innerWidth>768) && hamburger.classList.contains('closed') && !rightArea.classList.contains('lwr')) {
-            rightArea.classList.add('lwr');
+            // rightArea.classList.add('lwr');
             footer.classList.add('ccc');
         }
     })
@@ -114,7 +124,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (window.innerWidth >=425 && window.innerWidth <= 768) {
             if (!(hamburger.classList.contains('closed'))) {
-                rightArea.classList.add('lwr');
+                // rightArea.classList.add('lwr');
                 footer.classList.add('ccc');
             } else {
                 rightArea.classList.remove('lwr');
@@ -129,6 +139,11 @@ window.addEventListener('DOMContentLoaded', () => {
         menuLinks.classList.toggle('closed');
         if(hamburger.classList.contains('closed') && subLinksto.classList.contains('oo')) {
             subLinksto.classList.remove('oo');
+        }
+        if(hamburger.classList.contains('closed')) {
+            overlay.classList.remove('active');
+        } else  {
+            overlay.classList.add('active');
         }
     }
 
