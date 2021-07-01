@@ -55,10 +55,10 @@ window.addEventListener('DOMContentLoaded', () => {
     //     }
     //   }, false);
 
-    if (window.innerWidth <= 425) {
+    if (window.innerWidth <= 575) {
         hamburger.classList.add('closed');
     }
-    if (window.innerWidth >= 426 && window.innerWidth <= 992) {
+    if (window.innerWidth >= 576 && window.innerWidth <= 992) {
         overlay.classList.add('active');
     }
 
@@ -67,7 +67,11 @@ window.addEventListener('DOMContentLoaded', () => {
             hamburger.classList.remove('closed');
             hamburger.classList.remove('closedButton');
         }
-        if (window.innerWidth >= 426 && window.innerWidth <= 992) {
+        if ((window.innerWidth <= 768) && (window.innerWidth >= 425)) {
+            hamburger.classList.add('closed');
+            overlay.classList.remove('active');
+        }
+        if (window.innerWidth >= 769 && window.innerWidth <= 992) {
               overlay.classList.add('active');
         } else {
             overlay.classList.remove('active');
@@ -76,8 +80,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     //sidebar at full-screen between 425px and 768px
     window.addEventListener('resize', () => {
-        if ((window.innerWidth <=425 || window.innerWidth>768) && hamburger.classList.contains('closed') && !rightArea.classList.contains('lwr')) {
-            // rightArea.classList.add('lwr');
+        if ((window.innerWidth <= 425 || window.innerWidth > 768) && hamburger.classList.contains('closed') && !rightArea.classList.contains('lwr')) {
+            rightArea.classList.add('lwr');
             footer.classList.add('ccc');
         }
     })
@@ -119,11 +123,8 @@ window.addEventListener('DOMContentLoaded', () => {
     //open and close sidebar
     menuSVG.forEach(theMenu => { theMenu.addEventListener('click', menu__slider )});
     sliderButton.addEventListener('click', menu__slider );
-    hamburgerSwitch.addEventListener('click', menu__slider );
 
     function menu__slider(e) {
-        console.log('x');
-
         if(e.target.parentElement.classList.contains('linkto') &&
             !hamburger.classList.contains('closed')) return;
 
@@ -162,55 +163,6 @@ window.addEventListener('DOMContentLoaded', () => {
         subLinksto.classList.toggle('oo');
     })
 
-//open and close side-bar on mobile
-hamburgerSwitch.addEventListener ('click', () => {
-    if (!hamburger.classList.contains('yyy')) {
-        hamburger.classList.add('yyy');
-    } else {
-        hamburger.classList.remove('yyy');
-    }
-})
-
-// animation (appearing of text)
-const animItems = document.querySelectorAll('.anim-items');
-
-
-if (animItems.length > 0) {
-    window.addEventListener('scroll', animOnScroll);
-    function animOnScroll() {
-        for (let index = 0; index < animItems.length; index++) {
-            const animItem = animItems[index];
-            const animItemHeight = animItem.offsetHeight;
-            const animItemOffset = offset(animItem).top;
-            const animStart = 20;
-
-            let animItemPoint = window.innerHeight - animItemHeight / animStart;
-            if (animItemHeight > window.innerHeight) {
-                animItemPoint = window.innerHeight - window.innerHeight / animStart;
-            }
-            
-            if ((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset + animItemHeight)) {
-                animItem.classList.add('active-animation');
-            } else if (!animItem.classList.contains('one-time-animation')) {
-                animItem.classList.remove('active-animation');
-            }
-        }
-    }
-    function offset (el) {
-        const rect = el.getBoundingClientRect(),
-            scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-            scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
-    }
-
-    setTimeout(() => {
-        animOnScroll();
-    }, 300);
-}
-
-
-
-
 //scroll wheel on side-bar at height of window below 669px
 window.addEventListener('resize', () => {
     if (window.innerHeight<720 && !hamburger.classList.contains('zzz')) {
@@ -222,18 +174,29 @@ window.addEventListener('resize', () => {
         sliderButton.classList.remove('kkk');
         hamburgerLinks.classList.remove('ooo');
     }
-})
-
+});
+let lastScroll = 0;
 window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 0 && !hamburger.classList.contains('zzz-zzz') && window.innerWidth>426) {
-        hamburger.classList.add('zzz-zzz');
-        header.classList.add('zzz-ooo');
-    } else if (window.pageYOffset === 0 && hamburger.classList.contains('zzz-zzz')){
-        hamburger.classList.remove('zzz-zzz');
-        header.classList.remove('zzz-ooo');
-    }
-})
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
+    if (currentScroll > lastScroll ) {
+        console.log(['up',lastScroll,currentScroll]);
+        lastScroll = currentScroll
+        header.classList.add('up');
+        hamburger.classList.add('up');
+        header.classList.remove('down');
+        hamburger.classList.remove('down');
+
+    } else {
+        lastScroll = currentScroll
+        console.log(['down',lastScroll,currentScroll]);
+        header.classList.add('down');
+        hamburger.classList.add('down');
+        header.classList.remove('up');
+        hamburger.classList.remove('up');
+    }
+
+});
 
 setTimeout(() => {
     if (window.innerHeight<669 && !hamburger.classList.contains('zzz')) {
@@ -245,7 +208,7 @@ setTimeout(() => {
         sliderButton.classList.remove('kkk');
         hamburgerLinks.classList.remove('ooo');
     }
-}, 100)
+}, 100);
 
 
 
