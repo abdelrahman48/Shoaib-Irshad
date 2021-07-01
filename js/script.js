@@ -11,8 +11,6 @@ window.addEventListener('DOMContentLoaded', () => {
           headerSwitch = document.querySelector('.header__switch'),
           themeInfo = document.getElementById(('themeinfo')),
           footer = document.querySelector('.footer__block'),
-          hamburgerSwitch = document.querySelector('.header__swt'),
-          hamburgerSwitch2 = document.querySelector('.hamburger__swt2'),
           hamburgerButton1 = document.getElementById('13'),
           subLinksItem = document.querySelectorAll('.item-link'),
           subLinksto = document.querySelector('.subLinksto'),
@@ -57,6 +55,9 @@ window.addEventListener('DOMContentLoaded', () => {
     //     }
     //   }, false);
 
+    if (window.innerWidth <= 425) {
+        hamburger.classList.add('closed');
+    }
     if (window.innerWidth >= 426 && window.innerWidth <= 992) {
         overlay.classList.add('active');
     }
@@ -118,7 +119,11 @@ window.addEventListener('DOMContentLoaded', () => {
     //open and close sidebar
     menuSVG.forEach(theMenu => { theMenu.addEventListener('click', menu__slider )});
     sliderButton.addEventListener('click', menu__slider );
+    hamburgerSwitch.addEventListener('click', menu__slider );
+
     function menu__slider(e) {
+        console.log('x');
+
         if(e.target.parentElement.classList.contains('linkto') &&
             !hamburger.classList.contains('closed')) return;
 
@@ -142,8 +147,14 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         if(hamburger.classList.contains('closed')) {
             overlay.classList.remove('active');
+            document.querySelector('.header__menu svg').style.display = 'none';
+            document.querySelector('.svg__open').style.display = 'block';
+            document.querySelector('.svg__close').style.display = 'none';
         } else  {
             overlay.classList.add('active');
+            document.querySelector('.header__menu svg').style.display = 'block';
+            document.querySelector('.svg__open').style.display = 'none';
+            document.querySelector('.svg__close').style.display = 'block';
         }
     }
 
@@ -159,17 +170,6 @@ hamburgerSwitch.addEventListener ('click', () => {
         hamburger.classList.remove('yyy');
     }
 })
-
-hamburgerSwitch2.addEventListener ('click', () => {
-    if (!hamburger.classList.contains('yyy')) {
-        hamburger.classList.add('yyy');
-    } else {
-        hamburger.classList.remove('yyy');
-    }
-})
-
-
-
 
 // animation (appearing of text)
 const animItems = document.querySelectorAll('.anim-items');
