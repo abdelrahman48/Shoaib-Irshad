@@ -57,19 +57,22 @@ window.addEventListener('DOMContentLoaded', () => {
 
     if (window.innerWidth <= 575) {
         hamburger.classList.add('closed');
+        document.querySelector('.svg__open').style.display = 'block';
+        document.querySelector('.svg__close').style.display = 'none';
     }
     if (window.innerWidth >= 576 && window.innerWidth <= 992) {
         overlay.classList.add('active');
     }
 
-      window.addEventListener('resize', () => {
+    window.addEventListener('resize', () => {
         if ((window.innerWidth <= 768) && (window.innerWidth > 425) && hamburger.classList.contains('closed') && !rightArea.classList.contains('lwr')){
             hamburger.classList.remove('closed');
-            hamburger.classList.remove('closedButton');
         }
         if ((window.innerWidth <= 768) && (window.innerWidth >= 425)) {
             hamburger.classList.add('closed');
             overlay.classList.remove('active');
+            document.querySelector('.svg__open').style.display = 'block';
+            document.querySelector('.svg__close').style.display = 'none';
         }
         if (window.innerWidth >= 769 && window.innerWidth <= 992) {
               overlay.classList.add('active');
@@ -138,11 +141,11 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         }
         hamburger.classList.toggle('closed');
-        hamburger.classList.toggle('closedButton');
         rightArea.classList.toggle('closedMain');
         footer.classList.toggle('closedMain');
         menuSettings.classList.toggle('closed');
         menuLinks.classList.toggle('closed');
+
         if(hamburger.classList.contains('closed') && subLinksto.classList.contains('oo')) {
             subLinksto.classList.remove('oo');
         }
@@ -156,6 +159,13 @@ window.addEventListener('DOMContentLoaded', () => {
             document.querySelector('.header__menu svg').style.display = 'block';
             document.querySelector('.svg__open').style.display = 'none';
             document.querySelector('.svg__close').style.display = 'block';
+        }
+        if (window.innerWidth <= 576 && !hamburger.classList.contains('closed')) {
+            hamburger.classList.add('force__open');
+            hamburger.classList.add('show__mobile__menu');
+        } else {
+            hamburger.classList.remove('force__open');
+            hamburger.classList.remove('show__mobile__menu');
         }
     }
 

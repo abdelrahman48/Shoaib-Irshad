@@ -138,7 +138,7 @@ body {
 
 .main .hamburger {
   position: fixed;
-  left: 0px;
+  left: 0;
   top: 98px;
   width: 350px;
   height: calc(100vh - 98px);
@@ -282,7 +282,7 @@ body {
 }
 
 .main .hamburger__button {
-  display: none;
+  display: none !important;
 }
 
 .main .hamburger__links {
@@ -929,16 +929,6 @@ body {
   overflow: hidden;
 }
 
-.closedButton .button-circle {
-  left: 79.16% !important;
-  width: 2em !important;
-  height: 2em !important;
-}
-
-.closedButton .button-circle .arrowbtn {
-  transform: translate(-50%, -50%) scale(-1) !important;
-}
-
 .closedMain {
   width: calc(100% - 100px) !important;
 }
@@ -1544,9 +1534,6 @@ body {
   .closed .hamburger__links2 .links {
     flex-direction: row !important;
     margin-top: 20px !important;
-  }
-  .closedButton .button-circle {
-    transform: translate(-50%, -50%) scale(-1) !important;
   }
   .active {
     margin-left: 14.83% !important;
@@ -2203,11 +2190,14 @@ body {
 .header.down {
    top: 0;
  }
-.hamburger.up {
-  top: 0;
+.main .hamburger.up {
+  top: 0 !important;
 }
 .hamburger.down {
   top: 98px;
+}
+.hamburger.force__open {
+  width: 276px !important;
 }
 .header__menu {
   display: inline-block;
@@ -2231,7 +2221,7 @@ body {
   width: 360px;
   border-radius: 0 0 10px 0;
   justify-content: flex-start;
-  transition: .2s ease;
+  transition: .2s ease !important;
   height: auto !important;
 }
 .main .hamburger__menu {
@@ -2255,7 +2245,6 @@ body {
 }
 .main .hamburger__item .linkto .bt {
   transition: .2s ease;
-  opacity: 1;
 }
 .main .hamburger__menu .hamburger__item.active .linkto .bt {
   color: #24B4C6 !important;
@@ -2349,7 +2338,7 @@ body {
   width: 35px;
   height: 24px;
   top: 5.5%;
-  left: 49.5%;
+  left: 49.5% !important;
   border-radius: 25px;
   transition: .2s ease;
 }
@@ -2460,6 +2449,9 @@ body {
 .svg__open {
   display: none;
   margin-bottom: 4px;
+}
+.footer__block {
+  margin: 0 auto;
 }
 /* Closed Menu */
 .overlay {
@@ -2578,6 +2570,9 @@ body {
     width: 16px;
     height: 16px;
   }
+  .hamburger {
+    width: 60px !important;
+  }
   .promo__info .promo__title img {
     width: 33px !important;
     height: 33px !important;
@@ -2595,22 +2590,82 @@ body {
   }
 }
 @media (max-width: 426px) {
+  .header {
+    height: auto;
+  }
+  .header__logo {
+    padding: 13px 10px !important;
+    height: auto;
+  }
   .header__menu {
     margin-left: 5px;
-    margin-right: 6px;
+    margin-right: 18px;
+  }
+  .header__rest {
+    margin-top: -5px;
   }
   .header__swt {
     display: block;
   }
-  .hamburger {
-    width: 80% !important;
-    top: 98px !important;
+  .main .hamburger {
+    width: 85% !important;
+    top: 74px !important;
+    overflow: hidden;
+  }
+  .main .hamburger.show__mobile__menu {
+    transform: none !important;
   }
   .main .hamburger__menu {
     margin-top: 60px;
   }
+  .main:before {
+    content: '';
+    border: 1px solid #4E3176;
+    position: absolute;
+    left: 0;
+    top: 72px;
+    width: 100%;
+    z-index: 999;
+  }
   .hamburger__item .linkto {
     padding: 14px 10px !important;
+  }
+  .main .hamburger__footer .hamburger__item__container {
+    position: absolute;
+    top: 0;
+    padding-top: 15px;
+  }
+  .main .hamburger__footer .hamburger__links {
+    position: absolute;
+    bottom: 55px;
+  }
+  .hamburger__footer .hamburger__item {
+    margin-bottom: 0 !important;
+  }
+  .hamburger__footer .hamburger__item:first-child {
+    margin-top: 0 !important;
+  }
+  .hamburger__footer .hamburger__item .linkto {
+    background: none !important;
+  }
+  .main .hamburger__footer .switch {
+    position: relative;
+    right: 0;
+    order: 1;
+    flex: 4;
+    padding-top: 0 !important;
+    margin-left: -95px;
+  }
+  .main .hamburger__footer .lang {
+    order: 2;
+    flex: 1;
+  }
+  .main .hamburger__footer .setting {
+    order: 3;
+    flex: 1;
+  }
+  .closed .hamburger__item .linkto svg {
+    margin-left: 0 !important;
   }
   .main .hamburger__menu .hamburger__item .linkto .bt svg {
     right: -7.7%;
@@ -2620,6 +2675,12 @@ body {
   }
   .main .container .right-area .promo__info .btn {
     margin-left: 0 !important;
+  }
+  .main .hamburger__menu .hamburger__item.active .linkto .bt {
+    color: #fff !important;
+  }
+  .promo {
+    margin-top: 74px;
   }
 }
 
